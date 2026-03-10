@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البيت الأنيق | The Elegant Home</title>
+    <meta name="description" content="البيت الأنيق - خبراء البناء والصيانة والترميم في الأردن. The Elegant Home - Expert construction, maintenance & renovation in Jordan.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;700&family=Cinzel:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #1A1A2E;
+            --gold: #C8983D;
+            --gold-light: #D4A574;
+            --white: #FAF8F5;
+            --slate: #2D2D3A;
+            --sand: #F0E6D8;
+            --gold-glow: rgba(200, 152, 61, 0.15);
+            --shadow: 0 4px 30px rgba(26, 26, 46, 0.08);
+            --shadow-lg: 0 20px 60px rgba(26, 26, 46, 0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Sans Arabic', 'Jost', sans-serif;
+            background: var(--white);
+            color: var(--slate);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        body[dir="ltr"] { font-family: 'Jost', 'Noto Sans Arabic', sans-serif; }
+
+        h1, h2, h3, h4 { font-family: 'Noto Naskh Arabic', 'Cinzel', serif; font-weight: 700; color: var(--black); }
+        body[dir="ltr"] h1, body[dir="ltr"] h2, body[dir="ltr"] h3, body[dir="ltr"] h4 {
+            font-family: 'Cinzel', 'Noto Naskh Arabic', serif;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 0 2rem;
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.3); }
+        .nav-inner {
+            max-width: 1280px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 72px;
+        }
+        .nav-logo {
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none; color: var(--white);
+        }
+        .nav-logo-icon {
+            width: 44px; height: 44px;
+            background: var(--gold);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px; font-weight: 700; color: var(--black);
+            font-family: 'Noto Naskh Arabic', serif;
+        }
+        .nav-logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+        .nav-logo-ar { font-family: 'Noto Naskh Arabic', serif; font-size: 18px; font-weight: 700; color: var(--gold); }
+        .nav-logo-en { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.6); text-transform: uppercase; }
+
+        .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+        .nav-links a {
+            color: rgba(255,255,255,0.8); text-decoration: none; font-size: 15px;
+            font-weight: 500; transition: color 0.2s; cursor: pointer;
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        .lang-toggle {
+            background: transparent; border: 1.5px solid var(--gold); color: var(--gold);
+            padding: 6px 16px; border-radius: 6px; font-size: 14px; cursor: pointer;
+            font-family: 'Jost', 'Noto Sans Arabic', sans-serif; font-weight: 500;
+            transition: all 0.2s;
+        }
+        .lang-toggle:hover { background: var(--gold); color: var(--black); }
+
+        .nav-phone {
+            display: flex; align-items: center; gap: 8px;
+            color: var(--gold); text-decoration: none; font-weight: 600; font-size: 15px;
+            direction: ltr;
+        }
+        .nav-phone svg { width: 18px; height: 18px; }
+
+        .mobile-menu-btn {
+            display: none; background: none; border: none; cursor: pointer; padding: 8px;
+        }
+        .mobile-menu-btn span {
+            display: block; width: 24px; height: 2px; background: var(--gold);
+            margin: 6px 0; transition: all 0.3s;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative; min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background: url('images/hero.jpg') center/cover no-repeat;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(26,26,46,0.85) 0%, rgba(26,26,46,0.6) 50%, rgba(200,152,61,0.2) 100%);
+        }
+        .hero-content {
+            position: relative; z-index: 2; text-align: center;
+            max-width: 800px; padding: 2rem;
+        }
+        .hero-badge {
+            display: inline-block; background: rgba(200,152,61,0.15);
+            border: 1px solid rgba(200,152,61,0.3); color: var(--gold);
+            padding: 8px 24px; border-radius: 50px; font-size: 14px;
+            font-weight: 500; margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem); color: white;
+            margin-bottom: 0.5rem; line-height: 1.2;
+        }
+        .hero-gold { color: var(--gold); }
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem); color: rgba(255,255,255,0.8);
+            margin-bottom: 2.5rem; max-width: 600px; margin-inline: auto;
+        }
+        .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 14px 32px; border-radius: 8px; font-size: 16px;
+            font-weight: 600; text-decoration: none; cursor: pointer;
+            transition: all 0.3s ease; border: none;
+            font-family: inherit;
+        }
+        .btn-gold { background: var(--gold); color: var(--black); }
+        .btn-gold:hover { background: #b8882d; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(200,152,61,0.4); }
+        .btn-outline { background: transparent; border: 2px solid white; color: white; }
+        .btn-outline:hover { background: white; color: var(--black); }
+        .btn svg { width: 20px; height: 20px; }
+
+        .hero-stats {
+            display: flex; justify-content: center; gap: 3rem; margin-top: 3rem;
+            padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.15);
+        }
+        .stat { text-align: center; }
+        .stat-num { font-size: 2rem; font-weight: 700; color: var(--gold); font-family: 'Cinzel', serif; }
+        .stat-label { font-size: 13px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+        /* ===== SECTIONS ===== */
+        section { padding: 6rem 2rem; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1rem; }
+        .section-header p { font-size: 1.1rem; color: #64748b; max-width: 600px; margin: 0 auto; }
+        .gold-line { width: 60px; height: 3px; background: var(--gold); margin: 1rem auto; border-radius: 2px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* ===== ABOUT ===== */
+        .about { background: var(--white); }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .about-img {
+            border-radius: 16px; overflow: hidden; position: relative;
+            box-shadow: var(--shadow-lg);
+        }
+        .about-img img { width: 100%; height: 400px; object-fit: cover; display: block; }
+        .about-img-badge {
+            position: absolute; bottom: 1.5rem; right: 1.5rem;
+            background: var(--gold); color: var(--black); padding: 12px 20px;
+            border-radius: 10px; font-weight: 700; font-size: 14px;
+        }
+        body[dir="ltr"] .about-img-badge { right: auto; left: 1.5rem; }
+        .about-text h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+        .about-text p { margin-bottom: 1.5rem; font-size: 1.05rem; color: #555; }
+        .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+        .about-feature {
+            display: flex; align-items: center; gap: 10px;
+            padding: 12px 16px; background: var(--sand); border-radius: 10px;
+            font-weight: 500; font-size: 14px;
+        }
+        .about-feature svg { width: 20px; height: 20px; color: var(--gold); flex-shrink: 0; }
+
+        /* ===== SERVICES ===== */
+        .services { background: linear-gradient(180deg, var(--sand) 0%, var(--white) 100%); }
+        .services-tabs {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem;
+            margin-bottom: 3rem;
+        }
+        .tab-btn {
+            padding: 10px 24px; border-radius: 50px; border: 1.5px solid #ddd;
+            background: white; color: var(--slate); font-size: 14px; font-weight: 500;
+            cursor: pointer; transition: all 0.3s; font-family: inherit;
+        }
+        .tab-btn:hover { border-color: var(--gold); color: var(--gold); }
+        .tab-btn.active { background: var(--gold); border-color: var(--gold); color: var(--black); }
+
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .service-card {
+            background: white; border-radius: 16px; padding: 2rem;
+            box-shadow: var(--shadow); border: 1px solid rgba(0,0,0,0.04);
+            transition: all 0.3s ease; cursor: pointer; position: relative; overflow: hidden;
+        }
+        .service-card::before {
+            content: ''; position: absolute; top: 0; right: 0; width: 4px; height: 0;
+            background: var(--gold); transition: height 0.3s ease; border-radius: 0 0 4px 4px;
+        }
+        body[dir="ltr"] .service-card::before { right: auto; left: 0; }
+        .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .service-card:hover::before { height: 100%; }
+        .service-icon {
+            width: 56px; height: 56px; border-radius: 12px;
+            background: var(--gold-glow); display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+        .service-icon svg { width: 28px; height: 28px; color: var(--gold); }
+        .service-card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; font-family: 'Noto Sans Arabic', 'Jost', sans-serif; font-weight: 600; }
+        body[dir="ltr"] .service-card h3 { font-family: 'Jost', 'Noto Sans Arabic', sans-serif; }
+        .service-card p { font-size: 14px; color: #777; line-height: 1.8; }
+
+        /* ===== GALLERY ===== */
+        .gallery { background: var(--black); color: white; }
+        .gallery .section-header h2 { color: white; }
+        .gallery .section-header p { color: rgba(255,255,255,0.6); }
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+        }
+        .gallery-item {
+            border-radius: 12px; overflow: hidden; position: relative;
+            aspect-ratio: 4/3; cursor: pointer;
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(26,26,46,0.8) 0%, transparent 60%);
+            display: flex; align-items: flex-end; padding: 1.5rem;
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay span { color: white; font-weight: 600; font-size: 15px; }
+
+        /* ===== WHY US ===== */
+        .why-us { background: var(--white); }
+        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .why-card {
+            text-align: center; padding: 2.5rem 2rem;
+            border-radius: 16px; border: 1px solid #eee;
+            transition: all 0.3s;
+        }
+        .why-card:hover { border-color: var(--gold); box-shadow: var(--shadow); }
+        .why-num {
+            font-family: 'Cinzel', serif; font-size: 3rem; font-weight: 700;
+            color: var(--gold); opacity: 0.3; margin-bottom: 1rem;
+        }
+        .why-card h3 { font-size: 1.2rem; margin-bottom: 0.75rem; font-family: 'Noto Sans Arabic', 'Jost', sans-serif; font-weight: 600; }
+        body[dir="ltr"] .why-card h3 { font-family: 'Jost', 'Noto Sans Arabic', sans-serif; }
+        .why-card p { font-size: 14px; color: #777; }
+
+        /* ===== QUOTE FORM ===== */
+        .quote {
+            background: linear-gradient(135deg, var(--black) 0%, #2D2D3A 100%);
+            color: white;
+        }
+        .quote .section-header h2 { color: white; }
+        .quote .section-header p { color: rgba(255,255,255,0.6); }
+        .quote-form {
+            max-width: 700px; margin: 0 auto;
+            background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px; padding: 3rem; backdrop-filter: blur(10px);
+        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label {
+            display: block; font-size: 14px; font-weight: 500;
+            margin-bottom: 6px; color: rgba(255,255,255,0.7);
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 12px 16px; border-radius: 10px;
+            border: 1.5px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.08); color: white;
+            font-size: 15px; font-family: inherit; transition: border-color 0.2s;
+        }
+        .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.35); }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none; border-color: var(--gold);
+        }
+        .form-group select option { background: var(--black); color: white; }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-submit {
+            width: 100%; padding: 16px; background: var(--gold); color: var(--black);
+            border: none; border-radius: 10px; font-size: 16px; font-weight: 700;
+            cursor: pointer; font-family: inherit; transition: all 0.3s;
+            margin-top: 0.5rem;
+        }
+        .form-submit:hover { background: #b8882d; transform: translateY(-2px); }
+
+        /* ===== CONTACT ===== */
+        .contact { background: var(--sand); }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .contact-info { display: flex; flex-direction: column; gap: 2rem; }
+        .contact-card {
+            display: flex; align-items: flex-start; gap: 1rem;
+            padding: 1.5rem; background: white; border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        .contact-card-icon {
+            width: 48px; height: 48px; border-radius: 10px;
+            background: var(--gold-glow); display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-card-icon svg { width: 24px; height: 24px; color: var(--gold); }
+        .contact-card h4 { font-size: 14px; margin-bottom: 4px; font-family: 'Noto Sans Arabic', 'Jost', sans-serif; }
+        body[dir="ltr"] .contact-card h4 { font-family: 'Jost', 'Noto Sans Arabic', sans-serif; }
+        .contact-card p { font-size: 15px; color: #555; }
+        .contact-card a { color: var(--gold); text-decoration: none; font-weight: 600; direction: ltr; display: inline-block; }
+
+        .contact-form {
+            background: white; border-radius: 16px; padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+        .contact-form h3 { font-size: 1.4rem; margin-bottom: 1.5rem; }
+        .contact-form .form-group input,
+        .contact-form .form-group textarea {
+            background: var(--white); color: var(--slate);
+            border: 1.5px solid #e0e0e0;
+        }
+        .contact-form .form-group input::placeholder,
+        .contact-form .form-group textarea::placeholder { color: #aaa; }
+        .contact-form .form-group input:focus,
+        .contact-form .form-group textarea:focus { border-color: var(--gold); }
+        .contact-form .form-group label { color: var(--slate); }
+        .contact-form .form-submit { margin-top: 0.5rem; }
+
+        /* ===== CTA BANNER ===== */
+        .cta-banner {
+            background: var(--gold); padding: 4rem 2rem; text-align: center;
+        }
+        .cta-banner h2 { color: var(--black); font-size: 2rem; margin-bottom: 1rem; }
+        .cta-banner p { color: rgba(26,26,46,0.7); font-size: 1.1rem; margin-bottom: 2rem; }
+        .cta-banner .btn { background: var(--black); color: white; }
+        .cta-banner .btn:hover { background: #2D2D3A; }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--black); color: rgba(255,255,255,0.5);
+            padding: 3rem 2rem 1.5rem; text-align: center;
+        }
+        .footer-logo { margin-bottom: 1.5rem; }
+        .footer-logo .nav-logo-ar { font-size: 24px; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-copy { font-size: 13px; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-phone { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-links.open {
+                display: flex; flex-direction: column;
+                position: absolute; top: 72px; left: 0; right: 0;
+                background: rgba(26,26,46,0.98); padding: 2rem;
+                backdrop-filter: blur(20px); gap: 1.5rem;
+            }
+            .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+            .about-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .services-tabs { gap: 0.5rem; }
+            .tab-btn { padding: 8px 16px; font-size: 13px; }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-up {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* ===== TOAST ===== */
+        .toast {
+            position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px);
+            background: var(--black); color: white; padding: 16px 32px;
+            border-radius: 12px; font-weight: 500; z-index: 9999;
+            box-shadow: var(--shadow-lg); transition: transform 0.4s ease;
+            border: 1px solid var(--gold);
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body dir="rtl">
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <img src="images/logo.png" alt="البيت الأنيق" style="width:48px; height:48px; object-fit:contain;">
+                <div class="nav-logo-text">
+                    <span class="nav-logo-ar">البيت الأنيق</span>
+                    <span class="nav-logo-en">THE ELEGANT HOME</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" data-ar="من نحن" data-en="About">من نحن</a></li>
+                <li><a href="#services" data-ar="خدماتنا" data-en="Services">خدماتنا</a></li>
+                <li><a href="#gallery" data-ar="أعمالنا" data-en="Projects">أعمالنا</a></li>
+                <li><a href="#quote" data-ar="طلب عرض سعر" data-en="Get Quote">طلب عرض سعر</a></li>
+                <li><a href="#contact" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a></li>
+                <li><button class="lang-toggle" id="langToggle" onclick="toggleLang()">English</button></li>
+            </ul>
+            <a href="tel:0799715150" class="nav-phone">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                0799715150
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge" data-ar="خبراء البناء والصيانة في الأردن" data-en="Construction & Maintenance Experts in Jordan">خبراء البناء والصيانة في الأردن</div>
+            <h1>
+                <span data-ar="البيت" data-en="The Elegant">البيت</span>
+                <span class="hero-gold" data-ar="الأنيق" data-en="Home"> الأنيق</span>
+            </h1>
+            <p data-ar="نحوّل منزلك إلى تحفة معمارية. بناء، ترميم، صيانة شاملة بأيدي خبراء ومواد عالية الجودة في عمّان والأردن." data-en="We transform your home into an architectural masterpiece. Construction, renovation, and comprehensive maintenance with expert hands and premium materials in Amman, Jordan.">نحوّل منزلك إلى تحفة معمارية. بناء، ترميم، صيانة شاملة بأيدي خبراء ومواد عالية الجودة في عمّان والأردن.</p>
+            <div class="hero-btns">
+                <a href="#quote" class="btn btn-gold">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    <span data-ar="اطلب عرض سعر" data-en="Get a Quote">اطلب عرض سعر</span>
+                </a>
+                <a href="tel:0799715150" class="btn btn-outline">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <span data-ar="اتصل الآن" data-en="Call Now">اتصل الآن</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-num">+15</div>
+                    <div class="stat-label" data-ar="سنة خبرة" data-en="Years Experience">سنة خبرة</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">+500</div>
+                    <div class="stat-label" data-ar="مشروع منجز" data-en="Projects Completed">مشروع منجز</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label" data-ar="رضا العملاء" data-en="Client Satisfaction">رضا العملاء</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img fade-up">
+                    <img src="images/craftsmanship.jpg" alt="حرفية البيت الأنيق">
+                    <div class="about-img-badge" data-ar="+15 سنة من الإتقان" data-en="15+ Years of Mastery">+15 سنة من الإتقان</div>
+                </div>
+                <div class="about-text fade-up">
+                    <h2 data-ar="لماذا البيت الأنيق؟" data-en="Why The Elegant Home?">لماذا البيت الأنيق؟</h2>
+                    <div class="gold-line" style="margin: 1rem 0;"></div>
+                    <p data-ar="نحن فريق من المهندسين والحرفيين المحترفين في عمّان، متخصصون في البناء والترميم والصيانة الشاملة. نستخدم أجود المواد وأحدث التقنيات لنضمن لك نتيجة تفوق التوقعات." data-en="We are a team of professional engineers and craftsmen in Amman, specializing in construction, renovation, and comprehensive maintenance. We use the finest materials and latest techniques to deliver results that exceed expectations.">نحن فريق من المهندسين والحرفيين المحترفين في عمّان، متخصصون في البناء والترميم والصيانة الشاملة. نستخدم أجود المواد وأحدث التقنيات لنضمن لك نتيجة تفوق التوقعات.</p>
+                    <p data-ar="من الأساسات إلى التشطيبات النهائية — كل تفصيلة تحمل توقيعنا." data-en="From foundations to final finishes — every detail carries our signature.">من الأساسات إلى التشطيبات النهائية — كل تفصيلة تحمل توقيعنا.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span data-ar="فريق محترف ومرخّص" data-en="Licensed Professional Team">فريق محترف ومرخّص</span>
+                        </div>
+                        <div class="about-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span data-ar="مواد عالية الجودة" data-en="Premium Quality Materials">مواد عالية الجودة</span>
+                        </div>
+                        <div class="about-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span data-ar="ضمان على الأعمال" data-en="Work Guarantee">ضمان على الأعمال</span>
+                        </div>
+                        <div class="about-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span data-ar="أسعار منافسة" data-en="Competitive Pricing">أسعار منافسة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 data-ar="خدماتنا" data-en="Our Services">خدماتنا</h2>
+                <div class="gold-line"></div>
+                <p data-ar="حلول شاملة للبناء والصيانة والترميم — كل ما يحتاجه منزلك تحت سقف واحد" data-en="Comprehensive construction, maintenance & renovation solutions — everything your home needs under one roof">حلول شاملة للبناء والصيانة والترميم — كل ما يحتاجه منزلك تحت سقف واحد</p>
+            </div>
+
+            <div class="services-tabs" id="serviceTabs">
+                <button class="tab-btn active" data-filter="all" data-ar="الكل" data-en="All">الكل</button>
+                <button class="tab-btn" data-filter="build" data-ar="بناء وتشطيب" data-en="Construction">بناء وتشطيب</button>
+                <button class="tab-btn" data-filter="maint" data-ar="صيانة" data-en="Maintenance">صيانة</button>
+                <button class="tab-btn" data-filter="reno" data-ar="ترميم" data-en="Renovation">ترميم</button>
+                <!-- cleaning tab removed -->
+            </div>
+
+            <div class="services-grid" id="servicesGrid">
+                <!-- CONSTRUCTION -->
+                <div class="service-card fade-up" data-cat="build">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <h3 data-ar="بناء وتشطيبات" data-en="Construction & Finishing">بناء وتشطيبات</h3>
+                    <p data-ar="بناء منازل وفلل من الأساسات حتى التشطيب النهائي بأعلى المعايير الهندسية والجودة." data-en="Building homes and villas from foundations to final finishing with the highest engineering standards and quality.">بناء منازل وفلل من الأساسات حتى التشطيب النهائي بأعلى المعايير الهندسية والجودة.</p>
+                </div>
+
+                <div class="service-card fade-up" data-cat="build">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/><path d="M17 12h.01"/><path d="M7 12h.01"/></svg>
+                    </div>
+                    <h3 data-ar="بلاط وسيراميك" data-en="Tiling & Ceramics">بلاط وسيراميك</h3>
+                    <p data-ar="تركيب جميع أنواع البلاط والسيراميك والرخام والبورسلان بدقة عالية وتشطيب مثالي." data-en="Installation of all types of tiles, ceramics, marble, and porcelain with high precision and perfect finishing.">تركيب جميع أنواع البلاط والسيراميك والرخام والبورسلان بدقة عالية وتشطيب مثالي.</p>
+                </div>
+
+                <div class="service-card fade-up" data-cat="build">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 22h20"/><path d="M6.87 22V7.12a4 4 0 013.5-3.98L12 3l1.63.14a4 4 0 013.5 3.98V22"/><path d="M4 22V10"/><path d="M20 22V10"/><path d="M12 7v5"/><path d="M10 9h4"/></svg>
+                    </div>
+                    <h3 data-ar="دهان وديكورات" data-en="Painting & Decor">دهان وديكورات</h3>
+                    <p data-ar="أعمال دهان داخلي وخارجي بأفضل الدهانات، ديكورات جبس وجبسن بورد بتصاميم عصرية." data-en="Interior and exterior painting with premium paints, gypsum and gypsum board decorations with modern designs.">أعمال دهان داخلي وخارجي بأفضل الدهانات، ديكورات جبس وجبسن بورد بتصاميم عصرية.</p>
+                </div>
+
+                <!-- MAINTENANCE -->
+                <div class="service-card fade-up" data-cat="maint">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h3 data-ar="أعمال كهرباء" data-en="Electrical Work">أعمال كهرباء</h3>
+                    <p data-ar="تمديدات كهربائية، صيانة لوحات التوزيع، تركيب إنارة، وحل جميع مشاكل الكهرباء بأمان." data-en="Electrical installations, distribution panel maintenance, lighting installation, and safe resolution of all electrical issues.">تمديدات كهربائية، صيانة لوحات التوزيع، تركيب إنارة، وحل جميع مشاكل الكهرباء بأمان.</p>
+                </div>
+
+                <div class="service-card fade-up" data-cat="maint">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v6m0 12v2M4.93 4.93l4.24 4.24m5.66 5.66l4.24 4.24M2 12h6m8 0h6M4.93 19.07l4.24-4.24m5.66-5.66l4.24-4.24"/></svg>
+                    </div>
+                    <h3 data-ar="أعمال سباكة" data-en="Plumbing">أعمال سباكة</h3>
+                    <p data-ar="صيانة وتمديد شبكات المياه والصرف الصحي، كشف تسربات، تركيب أدوات صحية حديثة." data-en="Water and sewage network maintenance and installation, leak detection, modern sanitary fixture installation.">صيانة وتمديد شبكات المياه والصرف الصحي، كشف تسربات، تركيب أدوات صحية حديثة.</p>
+                </div>
+
+                <div class="service-card fade-up" data-cat="maint">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></svg>
+                    </div>
+                    <h3 data-ar="صيانة مكيفات" data-en="AC Maintenance">صيانة مكيفات</h3>
+                    <p data-ar="تنظيف وصيانة وتركيب جميع أنواع المكيفات، تعبئة غاز، وإصلاح الأعطال." data-en="Cleaning, maintenance, and installation of all AC types, gas refilling, and fault repair.">تنظيف وصيانة وتركيب جميع أنواع المكيفات، تعبئة غاز، وإصلاح الأعطال.</p>
+                </div>
+
+                <!-- RENOVATION -->
+                <div class="service-card fade-up" data-cat="reno">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h3 data-ar="ترميم منازل" data-en="Home Renovation">ترميم منازل</h3>
+                    <p data-ar="ترميم شامل للمنازل القديمة — معالجة تشققات، تقوية هيكلية، وإعادة الحياة لمنزلك." data-en="Comprehensive renovation of old homes — crack repair, structural reinforcement, and bringing your home back to life.">ترميم شامل للمنازل القديمة — معالجة تشققات، تقوية هيكلية، وإعادة الحياة لمنزلك.</p>
+                </div>
+
+                <div class="service-card fade-up" data-cat="reno">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3 data-ar="عزل مائي وحراري" data-en="Waterproofing & Insulation">عزل مائي وحراري</h3>
+                    <p data-ar="عزل أسطح وخزانات ومسابح بأحدث مواد العزل المائي والحراري لحماية كاملة." data-en="Roof, tank, and pool insulation with the latest waterproofing and thermal insulation materials for complete protection.">عزل أسطح وخزانات ومسابح بأحدث مواد العزل المائي والحراري لحماية كاملة.</p>
+                </div>
+
+                <div class="service-card fade-up" data-cat="reno">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="6" width="22" height="12" rx="2" ry="2"/><path d="M1 10h22"/></svg>
+                    </div>
+                    <h3 data-ar="حدادة وألمنيوم" data-en="Ironwork & Aluminum">حدادة وألمنيوم</h3>
+                    <p data-ar="تصنيع وتركيب أبواب ونوافذ ألمنيوم وحديد، درابزين، بوابات، وهناجر حسب الطلب." data-en="Manufacturing and installation of aluminum and iron doors, windows, railings, gates, and hangars to order.">تصنيع وتركيب أبواب ونوافذ ألمنيوم وحديد، درابزين، بوابات، وهناجر حسب الطلب.</p>
+                </div>
+
+                <div class="service-card fade-up" data-cat="maint">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    </div>
+                    <h3 data-ar="نقل أثاث" data-en="Furniture Moving">نقل أثاث</h3>
+                    <p data-ar="نقل أثاث احترافي مع فك وتركيب وتغليف — داخل عمّان وجميع محافظات الأردن." data-en="Professional furniture moving with disassembly, installation, and wrapping — within Amman and all of Jordan.">نقل أثاث احترافي مع فك وتركيب وتغليف — داخل عمّان وجميع محافظات الأردن.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 data-ar="من أعمالنا" data-en="Our Projects">من أعمالنا</h2>
+                <div class="gold-line"></div>
+                <p data-ar="نماذج من مشاريعنا المنجزة التي نفخر بها" data-en="Samples of our completed projects that we're proud of">نماذج من مشاريعنا المنجزة التي نفخر بها</p>
+            </div>
+            <div class="gallery-grid fade-up">
+                <div class="gallery-item">
+                    <img src="images/hero.jpg" alt="فيلا فاخرة">
+                    <div class="gallery-overlay"><span data-ar="فيلا فاخرة — عمّان" data-en="Luxury Villa — Amman">فيلا فاخرة — عمّان</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/interior.jpg" alt="تصميم داخلي">
+                    <div class="gallery-overlay"><span data-ar="تصميم داخلي — عبدون" data-en="Interior Design — Abdoun">تصميم داخلي — عبدون</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/craftsmanship.jpg" alt="حرفية وإتقان">
+                    <div class="gallery-overlay"><span data-ar="حرفية وإتقان في التفاصيل" data-en="Craftsmanship in Every Detail">حرفية وإتقان في التفاصيل</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials" style="background: var(--sand); padding: 6rem 2rem;">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 data-ar="ماذا يقول عملاؤنا" data-en="What Our Clients Say">ماذا يقول عملاؤنا</h2>
+                <div class="gold-line"></div>
+                <p data-ar="آراء حقيقية من عملاء وثقوا بنا" data-en="Real opinions from clients who trusted us">آراء حقيقية من عملاء وثقوا بنا</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;" class="fade-up">
+                <!-- Testimonial 1 -->
+                <div style="background: white; border-radius: 16px; padding: 2rem; box-shadow: var(--shadow); position: relative; border-top: 3px solid var(--gold);">
+                    <div style="font-size: 48px; color: var(--gold); opacity: 0.2; font-family: serif; line-height: 1; position: absolute; top: 12px; right: 16px;">"</div>
+                    <p style="font-size: 15px; color: #555; margin-bottom: 1.5rem; line-height: 1.9;" data-ar="رممّوا لنا البيت القديم وصار أحلى من الجديد! شغل نظيف واحترافي وأسعار معقولة. أنصح فيهم بقوة." data-en="They renovated our old house and made it better than new! Clean, professional work and reasonable prices. Highly recommend them.">رممّوا لنا البيت القديم وصار أحلى من الجديد! شغل نظيف واحترافي وأسعار معقولة. أنصح فيهم بقوة.</p>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--gold-glow); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--gold); font-size: 18px;">أ</div>
+                        <div>
+                            <div style="font-weight: 600; font-size: 15px; color: var(--black);" data-ar="أبو محمد" data-en="Abu Mohammad">أبو محمد</div>
+                            <div style="font-size: 13px; color: #999;" data-ar="ترميم منزل — خلدا" data-en="Home Renovation — Khalda">ترميم منزل — خلدا</div>
+                        </div>
+                        <div style="margin-inline-start: auto; color: var(--gold); font-size: 14px;">★★★★★</div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div style="background: white; border-radius: 16px; padding: 2rem; box-shadow: var(--shadow); position: relative; border-top: 3px solid var(--gold);">
+                    <div style="font-size: 48px; color: var(--gold); opacity: 0.2; font-family: serif; line-height: 1; position: absolute; top: 12px; right: 16px;">"</div>
+                    <p style="font-size: 15px; color: #555; margin-bottom: 1.5rem; line-height: 1.9;" data-ar="سوّوا لنا دهان كامل للشقة مع جبسن بورد — النتيجة فوق المتوقع. التزام بالمواعيد وشغل يفرح القلب." data-en="They did a complete paint job with gypsum board for our apartment — results exceeded expectations. On time and heartwarming work.">سوّوا لنا دهان كامل للشقة مع جبسن بورد — النتيجة فوق المتوقع. التزام بالمواعيد وشغل يفرح القلب.</p>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--gold-glow); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--gold); font-size: 18px;">س</div>
+                        <div>
+                            <div style="font-weight: 600; font-size: 15px; color: var(--black);" data-ar="سارة الحمود" data-en="Sara Al-Hamoud">سارة الحمود</div>
+                            <div style="font-size: 13px; color: #999;" data-ar="دهان وديكور — عبدون" data-en="Painting & Decor — Abdoun">دهان وديكور — عبدون</div>
+                        </div>
+                        <div style="margin-inline-start: auto; color: var(--gold); font-size: 14px;">★★★★★</div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div style="background: white; border-radius: 16px; padding: 2rem; box-shadow: var(--shadow); position: relative; border-top: 3px solid var(--gold);">
+                    <div style="font-size: 48px; color: var(--gold); opacity: 0.2; font-family: serif; line-height: 1; position: absolute; top: 12px; right: 16px;">"</div>
+                    <p style="font-size: 15px; color: #555; margin-bottom: 1.5rem; line-height: 1.9;" data-ar="عملوا لنا عزل كامل للسطح والخزانات — من وقتها ولا نقطة ماء. ناس أمينة وشغلهم مضمون." data-en="They did complete waterproofing for our roof and tanks — not a single drop of water since. Trustworthy people with guaranteed work.">عملوا لنا عزل كامل للسطح والخزانات — من وقتها ولا نقطة ماء. ناس أمينة وشغلهم مضمون.</p>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--gold-glow); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--gold); font-size: 18px;">خ</div>
+                        <div>
+                            <div style="font-weight: 600; font-size: 15px; color: var(--black);" data-ar="خالد العبادي" data-en="Khaled Al-Abadi">خالد العبادي</div>
+                            <div style="font-size: 13px; color: #999;" data-ar="عزل مائي — طبربور" data-en="Waterproofing — Tabarbour">عزل مائي — طبربور</div>
+                        </div>
+                        <div style="margin-inline-start: auto; color: var(--gold); font-size: 14px;">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="why-us" id="whyus">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 data-ar="لماذا تختارنا" data-en="Why Choose Us">لماذا تختارنا</h2>
+                <div class="gold-line"></div>
+            </div>
+            <div class="why-grid fade-up">
+                <div class="why-card">
+                    <div class="why-num">01</div>
+                    <h3 data-ar="خبرة طويلة" data-en="Extensive Experience">خبرة طويلة</h3>
+                    <p data-ar="أكثر من 15 عامًا في مجال البناء والصيانة في الأردن مع مئات المشاريع المنجزة بنجاح." data-en="Over 15 years in construction and maintenance in Jordan with hundreds of successfully completed projects.">أكثر من 15 عامًا في مجال البناء والصيانة في الأردن مع مئات المشاريع المنجزة بنجاح.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-num">02</div>
+                    <h3 data-ar="جودة بلا تنازل" data-en="Uncompromising Quality">جودة بلا تنازل</h3>
+                    <p data-ar="نستخدم أفضل المواد ونلتزم بأعلى معايير الجودة في كل مرحلة من مراحل العمل." data-en="We use the best materials and adhere to the highest quality standards at every stage of work.">نستخدم أفضل المواد ونلتزم بأعلى معايير الجودة في كل مرحلة من مراحل العمل.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-num">03</div>
+                    <h3 data-ar="أسعار شفافة" data-en="Transparent Pricing">أسعار شفافة</h3>
+                    <p data-ar="عروض أسعار واضحة ومفصّلة بدون تكاليف مخفية. تعرف بالضبط ما تدفعه مقابل ماذا." data-en="Clear, detailed quotes with no hidden costs. You know exactly what you're paying for.">عروض أسعار واضحة ومفصّلة بدون تكاليف مخفية. تعرف بالضبط ما تدفعه مقابل ماذا.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUOTE FORM -->
+    <section class="quote" id="quote">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 data-ar="اطلب عرض سعر مجاني" data-en="Request a Free Quote">اطلب عرض سعر مجاني</h2>
+                <div class="gold-line"></div>
+                <p data-ar="أخبرنا عن مشروعك وسنتواصل معك خلال 24 ساعة بعرض سعر مفصّل" data-en="Tell us about your project and we'll contact you within 24 hours with a detailed quote">أخبرنا عن مشروعك وسنتواصل معك خلال 24 ساعة بعرض سعر مفصّل</p>
+            </div>
+            <form class="quote-form fade-up" id="quoteForm" action="https://formsubmit.co/bahjatozraeen@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="طلب عرض سعر جديد — البيت الأنيق">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-ar="الاسم الكامل" data-en="Full Name">الاسم الكامل</label>
+                        <input type="text" name="name" required placeholder="" data-ar-ph="أدخل اسمك الكامل" data-en-ph="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label data-ar="رقم الهاتف" data-en="Phone Number">رقم الهاتف</label>
+                        <input type="tel" name="phone" required placeholder="" data-ar-ph="07XXXXXXXX" data-en-ph="07XXXXXXXX" dir="ltr">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-ar="البريد الإلكتروني" data-en="Email">البريد الإلكتروني</label>
+                        <input type="email" name="email" placeholder="" data-ar-ph="example@email.com" data-en-ph="example@email.com" dir="ltr">
+                    </div>
+                    <div class="form-group">
+                        <label data-ar="نوع الخدمة" data-en="Service Type">نوع الخدمة</label>
+                        <select name="service" required id="serviceSelect">
+                            <option value="" data-ar="اختر الخدمة" data-en="Select Service">اختر الخدمة</option>
+                            <option value="بناء وتشطيب" data-ar="بناء وتشطيب" data-en="Construction & Finishing">بناء وتشطيب</option>
+                            <option value="ترميم منازل" data-ar="ترميم منازل" data-en="Home Renovation">ترميم منازل</option>
+                            <option value="أعمال كهرباء" data-ar="أعمال كهرباء" data-en="Electrical Work">أعمال كهرباء</option>
+                            <option value="أعمال سباكة" data-ar="أعمال سباكة" data-en="Plumbing">أعمال سباكة</option>
+                            <option value="دهان وديكورات" data-ar="دهان وديكورات" data-en="Painting & Decor">دهان وديكورات</option>
+                            <option value="بلاط وسيراميك" data-ar="بلاط وسيراميك" data-en="Tiling & Ceramics">بلاط وسيراميك</option>
+                            <option value="عزل مائي وحراري" data-ar="عزل مائي وحراري" data-en="Waterproofing">عزل مائي وحراري</option>
+                            <option value="حدادة وألمنيوم" data-ar="حدادة وألمنيوم" data-en="Ironwork & Aluminum">حدادة وألمنيوم</option>
+                            <option value="نقل أثاث" data-ar="نقل أثاث" data-en="Furniture Moving">نقل أثاث</option>
+                            <option value="صيانة مكيفات" data-ar="صيانة مكيفات" data-en="AC Maintenance">صيانة مكيفات</option>
+                            <option value="أخرى" data-ar="أخرى" data-en="Other">أخرى</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-ar="الموقع / المنطقة" data-en="Location / Area">الموقع / المنطقة</label>
+                        <input type="text" name="location" placeholder="" data-ar-ph="مثال: عبدون، عمّان" data-en-ph="e.g. Abdoun, Amman">
+                    </div>
+                    <div class="form-group">
+                        <label data-ar="الميزانية التقريبية" data-en="Approximate Budget">الميزانية التقريبية</label>
+                        <select name="budget" id="budgetSelect">
+                            <option value="" data-ar="اختر الميزانية" data-en="Select Budget">اختر الميزانية</option>
+                            <option value="أقل من 500 دينار" data-ar="أقل من 500 دينار" data-en="Under 500 JOD">أقل من 500 دينار</option>
+                            <option value="500 - 2000 دينار" data-ar="500 - 2,000 دينار" data-en="500 - 2,000 JOD">500 - 2,000 دينار</option>
+                            <option value="2000 - 5000 دينار" data-ar="2,000 - 5,000 دينار" data-en="2,000 - 5,000 JOD">2,000 - 5,000 دينار</option>
+                            <option value="5000 - 15000 دينار" data-ar="5,000 - 15,000 دينار" data-en="5,000 - 15,000 JOD">5,000 - 15,000 دينار</option>
+                            <option value="أكثر من 15000 دينار" data-ar="أكثر من 15,000 دينار" data-en="15,000+ JOD">أكثر من 15,000 دينار</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label data-ar="تفاصيل المشروع" data-en="Project Details">تفاصيل المشروع</label>
+                    <textarea name="details" rows="5" placeholder="" data-ar-ph="صف لنا مشروعك بالتفصيل — ما الذي تحتاجه بالضبط؟" data-en-ph="Describe your project in detail — what exactly do you need?"></textarea>
+                </div>
+                <button type="submit" class="form-submit" data-ar="أرسل طلب عرض السعر" data-en="Submit Quote Request">أرسل طلب عرض السعر</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+        <h2 data-ar="جاهز تبدأ مشروعك؟" data-en="Ready to Start Your Project?">جاهز تبدأ مشروعك؟</h2>
+        <p data-ar="تواصل معنا اليوم واحصل على استشارة مجانية" data-en="Contact us today and get a free consultation">تواصل معنا اليوم واحصل على استشارة مجانية</p>
+        <a href="tel:0799715150" class="btn" style="font-size:18px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            0799715150
+        </a>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h2>
+                <div class="gold-line"></div>
+            </div>
+            <div class="contact-grid fade-up">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <h4 data-ar="اتصل بنا" data-en="Call Us">اتصل بنا</h4>
+                            <p><a href="tel:0799715150">0799715150</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+                        </div>
+                        <div>
+                            <h4 data-ar="واتساب" data-en="WhatsApp">واتساب</h4>
+                            <p><a href="https://wa.me/962799715150" target="_blank">0799715150</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <h4 data-ar="الموقع" data-en="Location">الموقع</h4>
+                            <p data-ar="عمّان، الأردن" data-en="Amman, Jordan">عمّان، الأردن</p>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <div>
+                            <h4 data-ar="ساعات العمل" data-en="Working Hours">ساعات العمل</h4>
+                            <p data-ar="السبت — الخميس: 8 صباحًا — 6 مساءً" data-en="Sat — Thu: 8:00 AM — 6:00 PM">السبت — الخميس: 8 صباحًا — 6 مساءً</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm" action="https://formsubmit.co/bahjatozraeen@gmail.com" method="POST">
+                    <input type="hidden" name="_subject" value="رسالة جديدة — البيت الأنيق">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <h3 data-ar="أرسل لنا رسالة" data-en="Send Us a Message">أرسل لنا رسالة</h3>
+                    <div class="form-group">
+                        <label data-ar="الاسم" data-en="Name">الاسم</label>
+                        <input type="text" name="name" required placeholder="" data-ar-ph="اسمك" data-en-ph="Your name">
+                    </div>
+                    <div class="form-group">
+                        <label data-ar="رقم الهاتف" data-en="Phone">رقم الهاتف</label>
+                        <input type="tel" name="phone" required placeholder="" data-ar-ph="07XXXXXXXX" data-en-ph="07XXXXXXXX" dir="ltr">
+                    </div>
+                    <div class="form-group">
+                        <label data-ar="الرسالة" data-en="Message">الرسالة</label>
+                        <textarea name="message" rows="4" required placeholder="" data-ar-ph="كيف يمكننا مساعدتك؟" data-en-ph="How can we help you?"></textarea>
+                    </div>
+                    <button type="submit" class="form-submit" data-ar="أرسل الرسالة" data-en="Send Message">أرسل الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-logo">
+            <span class="nav-logo-ar">البيت الأنيق</span><br>
+            <span class="nav-logo-en" style="font-size:13px;">THE ELEGANT HOME</span>
+        </div>
+        <div class="footer-links">
+            <a href="#about" data-ar="من نحن" data-en="About">من نحن</a>
+            <a href="#services" data-ar="خدماتنا" data-en="Services">خدماتنا</a>
+            <a href="#gallery" data-ar="أعمالنا" data-en="Projects">أعمالنا</a>
+            <a href="#quote" data-ar="عرض سعر" data-en="Quote">عرض سعر</a>
+            <a href="#contact" data-ar="تواصل معنا" data-en="Contact">تواصل معنا</a>
+        </div>
+        <div class="footer-copy">
+            <span data-ar="© 2026 البيت الأنيق — جميع الحقوق محفوظة" data-en="© 2026 The Elegant Home — All Rights Reserved">© 2026 البيت الأنيق — جميع الحقوق محفوظة</span>
+        </div>
+    </footer>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        // ===== LANGUAGE SYSTEM =====
+        let currentLang = 'ar';
+
+        function toggleLang() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            const htmlLang = currentLang === 'ar' ? 'ar' : 'en';
+
+            document.documentElement.lang = htmlLang;
+            document.documentElement.dir = dir;
+            document.body.dir = dir;
+
+            // Toggle button text
+            document.getElementById('langToggle').textContent = currentLang === 'ar' ? 'English' : 'العربية';
+
+            // Update all text elements
+            document.querySelectorAll('[data-ar]').forEach(el => {
+                const text = el.getAttribute(`data-${currentLang}`);
+                if (text) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
+                    el.textContent = text;
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-ar-ph]').forEach(el => {
+                const ph = el.getAttribute(`data-${currentLang}-ph`);
+                if (ph) el.placeholder = ph;
+            });
+
+            // Update select options
+            document.querySelectorAll('select option[data-ar]').forEach(opt => {
+                const text = opt.getAttribute(`data-${currentLang}`);
+                if (text) opt.textContent = text;
+            });
+
+            // Update page title
+            document.title = currentLang === 'ar' ? 'البيت الأنيق | The Elegant Home' : 'The Elegant Home | البيت الأنيق';
+        }
+
+        // Set initial placeholders
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[data-ar-ph]').forEach(el => {
+                el.placeholder = el.getAttribute('data-ar-ph');
+            });
+        });
+
+        // ===== NAVBAR SCROLL =====
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // ===== MOBILE MENU =====
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('open');
+        }
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            a.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
+
+        // ===== SERVICE TABS =====
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.service-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.cat === filter) {
+                        card.style.display = '';
+                        setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => { card.style.display = 'none'; }, 300);
+                    }
+                });
+            });
+        });
+
+        // ===== FADE UP ANIMATION =====
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // ===== FORM HANDLING =====
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const data = new FormData(this);
+            fetch(this.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+                .then(r => {
+                    if (r.ok) {
+                        showToast(currentLang === 'ar' ? 'تم إرسال طلبك بنجاح! سنتواصل معك قريبًا.' : 'Your request was sent successfully! We\'ll contact you soon.');
+                        this.reset();
+                    } else {
+                        showToast(currentLang === 'ar' ? 'حدث خطأ. يرجى المحاولة مرة أخرى.' : 'An error occurred. Please try again.');
+                    }
+                })
+                .catch(() => {
+                    showToast(currentLang === 'ar' ? 'حدث خطأ. يرجى المحاولة مرة أخرى.' : 'An error occurred. Please try again.');
+                });
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const data = new FormData(this);
+            fetch(this.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+                .then(r => {
+                    if (r.ok) {
+                        showToast(currentLang === 'ar' ? 'تم إرسال رسالتك بنجاح!' : 'Your message was sent successfully!');
+                        this.reset();
+                    } else {
+                        showToast(currentLang === 'ar' ? 'حدث خطأ. يرجى المحاولة مرة أخرى.' : 'An error occurred. Please try again.');
+                    }
+                })
+                .catch(() => {
+                    showToast(currentLang === 'ar' ? 'حدث خطأ. يرجى المحاولة مرة أخرى.' : 'An error occurred. Please try again.');
+                });
+        });
+
+        // ===== SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
